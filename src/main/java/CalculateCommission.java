@@ -6,7 +6,6 @@ import static java.util.logging.Logger.getLogger;
 
 public class CalculateCommission {
 
-    static Scanner scanner = new Scanner(System.in);
     static Logger logger = getLogger(CalculateCommission.class.getName());
 
     public double getCommission(int locks, int stocks, int barrels) {
@@ -24,8 +23,6 @@ public class CalculateCommission {
         while (locks >= 0) {
             totalLocks += locks;
             totalStocks += stocks;
-            System.out.print("Number of Barrels: ");
-            barrels = scanner.nextInt();
             totalBarrels += barrels;
             locks--;
         }
