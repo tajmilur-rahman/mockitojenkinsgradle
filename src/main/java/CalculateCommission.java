@@ -24,8 +24,8 @@ public class CalculateCommission {
         while (locks >= 0) {
             totalLocks += locks;
             totalStocks += stocks;
-            //System.out.print("Number of Barrels: ");
-            //barrels = scanner.nextInt();
+            System.out.print("Number of Barrels: ");
+            barrels = scanner.nextInt();
             totalBarrels += barrels;
             locks--;
         }

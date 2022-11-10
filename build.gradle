@@ -17,6 +17,14 @@ dependencies {
     testImplementation('org.mockito:mockito-inline:4.8.0')
 }
 
+sourceSets {
+    test {
+        java {
+            srcDirs = ["test/"]
+        }
+    }
+}
+
 test {
     useJUnitPlatform()
 }
