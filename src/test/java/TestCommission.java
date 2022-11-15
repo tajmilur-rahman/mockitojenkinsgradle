@@ -1,9 +1,6 @@
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import org.junit.Before;
-import org.junit.Ignore;
-import org.junit.Rule;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -16,6 +13,15 @@ import org.mockito.junit.MockitoJUnitRunner;
 @RunWith(MockitoJUnitRunner.class)
 public class TestCommission {
 
+    @Mock
+    private Lock lock = Mockito.mock(Lock.class);
+
+    @Mock
+    private Stock stock = Mockito.mock(Stock.class);
+
+    @Mock
+    private Barrel barrel = Mockito.mock(Barrel.class);
+
     @InjectMocks
     private CalculateCommission calculateCommission = new CalculateCommission();
 
@@ -26,11 +32,17 @@ public class TestCommission {
 
     @Test
     public void testGetCommissionSkipWhileLoop() {
-        Assertions.assertEquals(0.0, calculateCommission.getCommission(-1, Mockito.anyInt(),Mockito.anyInt()), 1.0);
+        when(lock.getCount()).thenReturn(-1);
+        when(stock.getCount()).thenReturn(5);
+        when(barrel.getCount()).thenReturn(5);
+        Assertions.assertEquals(0.0, calculateCommission.getCommission(lock, stock, barrel));
     }
 
     @Test
     public void testGetCommissionEnterWhileLoop() {
-        Assertions.assertEquals(185.5, calculateCommission.getCommission(3,5,7), 10.0);
+        when(lock.getCount()).thenReturn(5);
+        when(stock.getCount()).thenReturn(5);
+        when(barrel.getCount()).thenReturn(5);
+        Assertions.assertEquals(520.0, calculateCommission.getCommission(lock, stock, barrel));
     }
 }

@@ -1,4 +1,3 @@
-import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -8,7 +7,7 @@ public class CalculateCommission {
 
     static Logger logger = getLogger(CalculateCommission.class.getName());
 
-    public double getCommission(int locks, int stocks, int barrels) {
+    public double getCommission(Lock lock, Stock stock, Barrel barrel) {
         double lockPrice, stockPrice, barrelPrice;
         int totalLocks, totalStocks, totalBarrels;
         double lockSales, stockSales, barrelSales;
@@ -20,10 +19,11 @@ public class CalculateCommission {
         totalStocks = 0;
         totalBarrels = 0;
 
-        while (locks >= 0) {
-            totalLocks += locks;
-            totalStocks += stocks;
-            totalBarrels += barrels;
+        int locks = lock.getCount();
+        while (locks > 0) {
+            totalLocks += lock.getCount();
+            totalStocks += stock.getCount();
+            totalBarrels += barrel.getCount();
             locks--;
         }
 
