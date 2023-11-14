@@ -19,12 +19,11 @@ dependencies {
     testImplementation 'org.mockito:mockito-core:4.5.1'
 }
 
-reporting.baseDir = "build"
+//reporting.baseDir = "build"
 
 test {
     useJUnitPlatform()
     outputs.upToDateWhen { false }
-    showStandardStreams = true
     testLogging {
         reports {
             junitXml.setEnabled(true)
