@@ -33,8 +33,8 @@ public class TestCommission {
     @Test
     public void testGetCommissionSkipWhileLoop() {
         when(lock.getCount()).thenReturn(-1);
-        when(stock.getCount()).thenReturn(5);
-        when(barrel.getCount()).thenReturn(5);
+        //when(stock.getCount()).thenReturn(5);
+        //when(barrel.getCount()).thenReturn(5);
         Assertions.assertEquals(0.0, calculateCommission.getCommission(lock, stock, barrel));
     }
 
