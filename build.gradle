@@ -26,8 +26,8 @@ test {
     outputs.upToDateWhen { false }
     testLogging {
         reports {
-            junitXml.setEnabled(true)
-            junitXml.outputLocation = layout.buildDirectory.dir("${buildDir}/test-results/test")
+            junitXml.outputPerTestCase(true)
+            junitXml.destination(file("build/test-results/test"))
         }
     }
 }
