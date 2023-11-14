@@ -21,4 +21,9 @@ dependencies {
 
 test {
     useJUnitPlatform()
+    testLogging {
+        reports {
+            junitXml.outputLocation = layout.buildDirectory.dir("${buildDir}/test-results/test")
+        }
+    }
 }

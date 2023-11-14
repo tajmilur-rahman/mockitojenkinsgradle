@@ -19,8 +19,7 @@ pipeline {
             }
             post {
                 always {
-                    //junit "/var/lib/jenkins/workspace/Pipeline-Taj/build/test-results/**/*.xml"
-                    junit "/var/lib/jenkins/workspace/Pipeline-Taj/build/reports/**/*.html"
+                    junit "./build/test-results/test/**/*.xml"
                 }
             }
         }
