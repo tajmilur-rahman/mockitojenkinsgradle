@@ -23,8 +23,11 @@ reporting.baseDir = "build"
 
 test {
     useJUnitPlatform()
+    outputs.upToDateWhen { false }
+    showStandardStreams = true
     testLogging {
         reports {
+            junitXml.setEnabled(true)
             junitXml.outputLocation = layout.buildDirectory.dir("${buildDir}/test-results/test")
         }
     }
